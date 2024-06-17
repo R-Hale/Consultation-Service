@@ -1,0 +1,14 @@
+spring:
+    application:
+        name: consultation-service
+
+conditions:
+  conditionNames:
+    1: GENOVIAN_PEAR
+    2: GENOVIAN_APPLE
+  conditionQuestions:
+    1:
+      - id: 1
+        questionText: "Have you had a bad reaction to Genovian Pear?"
+      - id: 2
+        questionText: "Have you taken medication for this condition before?"

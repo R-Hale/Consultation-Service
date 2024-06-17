@@ -1,0 +1,86 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /v1/consultation-api:
+    post:
+      tags:
+        - consultation-controller
+      operationId: submitQuestions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsultationFormDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                uniqueItems: true
+                type: array
+                items:
+                  $ref: '#/components/schemas/PrescriptionBlockers'
+  /v1/consultation-api/{medicalConditionId}:
+    get:
+      tags:
+        - consultation-controller
+      operationId: getQuestions
+      parameters:
+        - name: medicalConditionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QuestionDto'
+components:
+  schemas:
+    ConsultationFormDto:
+      type: object
+      properties:
+        medicalConditionId:
+          type: integer
+          format: int64
+        questionAnswers:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionAnswerDto'
+    QuestionAnswerDto:
+      type: object
+      properties:
+        questionId:
+          type: integer
+          format: int64
+        answer:
+          type: boolean
+    PrescriptionBlockers:
+      type: object
+      properties:
+        questionId:
+          type: integer
+          format: int64
+        reason:
+          type: string
+    QuestionDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        questionText:
+          type: string
