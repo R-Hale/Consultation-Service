@@ -17,3 +17,20 @@
 * More logging would need to be added. Include more logging for any RuntimeExceptions thrown.
 * Adding question types beyond a true or false answer.
 * Better way to validate fetch input answers when validating.
+
+## Postman Collection
+
+1. Import the collection into Postman:
+  - Click on the `Import` button in the top-left corner.
+  - Select `Link`.
+  - Paste the following URL and click `Continue`:
+
+     ```
+     https://github.com/R-Hale/Consultation-Service/blob/main/Consulatation-Service.postman_collection.json
+     ```
+
+2. The collection will be added to your Postman and you can start using the API.
+
+### Collection URL
+
+You can directly download the collection file from [here](https://github.com/R-Hale/Consultation-Service/blob/main/Consulatation-Service.postman_collection.json).
