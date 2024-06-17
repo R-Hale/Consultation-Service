@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "c8bdc6cf-d2dd-440c-9748-46b48b6745e4",
+		"name": "Consulatation-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15801113"
+	},
+	"item": [
+		{
+			"name": "Get consultation questions for Genovian Pear condition",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get consultation questions for invalid condition - returns Bad Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit consultation with prescription blocking answers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medicalConditionId\": 1,\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answer\": true\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answer\": true\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit consultation with single prescription blocking answer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medicalConditionId\": 1,\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answer\": true\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answer\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit consultation with no prescription blocking answers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medicalConditionId\": 1,\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answer\": false\r\n        },\r\n        {\r\n            \"questionId\": 2,\r\n            \"answer\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit with missing consultation answers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medicalConditionId\": 1,\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answer\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit with duplicate consultation answers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medicalConditionId\": 1,\r\n    \"questionAnswers\": [\r\n        {\r\n            \"questionId\": 1,\r\n            \"answer\": false\r\n        },\r\n        {\r\n            \"questionId\": 1,\r\n            \"answer\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/consultation-api",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"consultation-api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
